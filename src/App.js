@@ -5,6 +5,8 @@ import Graph from './Graph';
 
 function App() {
   const [board, setBoard] = useState({});
+  const [bombs, setBombs] = useState(0);
+  const [emptyFields, setEmptyFields] = useState(0);
 
   const createGraph = () => {
     const graph = new Graph();
@@ -31,23 +33,37 @@ function App() {
     Object.keys(fields).forEach(field => {
       if(fields[field].bomb){
         const myDiv = document.getElementById(`i${field}`);
-        myDiv.style.backgroundImage = ;
+        myDiv.style.background = "#FF0000 url('bomb.svg') no-repeat center";
       }
-    })
+    });
+    setBombs(20);
   }
 
-  const explodes = (e, field) => {
-    e.preventDefault();
+  const explodes = (field) => {
     board.BFS(field, (currentValue) => {
-      if(fields[field].bomb){
+      if(fields[currentValue].bomb){
         showBombs();
         return true;
       }
-      else{
-        console.log("eh pessoa");
+      else{ 
+        var remainField = emptyFields-1;
+        setEmptyFields(remainField);
+        console.log(remainField);
+        const myDiv = document.getElementById(`i${currentValue}`);
+        myDiv.style.background = "#2ed133"
         return false;
       }
-    })
+    });
+  }
+
+  const handleClick = async (field) => {
+    explodes(field);
+    if(bombs === 20){
+      
+    }
+    else if(emptyFields === 17){
+      console.log("ganhou");
+    }
   }
   return (
     <div className="App">
@@ -58,9 +74,10 @@ function App() {
         Como foi dito, existem diversos componentes fortemente conectados dentro do <span id="risk">grafo</span> campo minado.
         Como é de se esperar, as bombas também são componentes fortemente conectados. Boa sorte!
       </p>
+      <div></div>
       <div className="board">
         {Object.keys(fields).map((field) => (
-          <div className="field" id={`i${field}`} key={field} onClick={(e) => explodes(e, field)}/>
+          <div className="field" id={`i${field}`} key={field} onClick={() => handleClick(field)}/>
         ))}
         </div>
       </div>

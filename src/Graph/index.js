@@ -27,10 +27,10 @@ export default class Graph {
             const shouldEnd = currentFunction(currentValue);
             if(shouldEnd) return;
 
-            Object.keys(this.adjacencyMatrix[currentValue]).forEach((person) => {
-                if(!explored.has(person)){
-                    explored.add(person);
-                    q.enqueue(person);
+            Object.keys(this.adjacencyMatrix[currentValue]).forEach((field) => {
+                if(!explored.has(field)){
+                    explored.add(field);
+                    q.enqueue(field);
                 };
             });
         }
