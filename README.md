@@ -1,45 +1,53 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
+# Campo Minado
 
-Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
-
-# NomedoProjeto
-
-**Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
+**Número da Lista**: 10<br>
+**Conteúdo da Disciplina**: Grafos<br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 15/0120371  |  Bruno Oliveira Dantas |
+| 17/0031438 |  Dâmaso Júnio Pereira Brasileo |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+O **Campo Minado** remete ao antigo jogo de Campo Minado conhecido por muitas pessoas. É um campo repleto de Componentes fortemente conectados, mas um desses componentes é justamente o Componente de BOMBAS. Que faz com que o jogador obviamente perca o jogo =). 
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+
+![](src/campo-minado1.png)
+
+![](src/campominado2.png)
+
+![](src/campominado3.png)
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: JavaScript<br>
+**Framework**: ReactJS<br>
+
+Para instalação do projeto, é necessário executar os seguintes comandos:
+```
+git clone https://github.com/projeto-de-algoritmos/Grafos2-CampoMinado
+
+cd Grafos2-CampoMinado
+
+yarn install
+```
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+
+Para execução do projeto é necessário, após a instalação:
+```
+cd Grafos2-CampoMinado
+
+yarn start
+```
 
 ## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+O comando `yarn` pode ser trocado por `npm`:
+```
+npm install
 
+npm start
+```
 
-
-
+É necessário ter o `NPM` ou `YARN` instalado.
