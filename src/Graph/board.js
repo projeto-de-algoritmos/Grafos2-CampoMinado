@@ -73,7 +73,7 @@ export default {
     70: {connected: [80, 81], bomb: false},
     71: {connected: [3, 7, 25, 31, 33, 39, 44, 49, 50, 52, 57, 0, 74, 76, 79, 90, 92, 95, 98], bomb: true},
     72: {connected: [62, 82], bomb: false},
-    73: {connected: [63, 74, 84], bomb: false},
+    73: {connected: [63, 83, 84], bomb: false},
     74: {connected: [3, 7, 25, 31, 33, 39, 44, 49, 50, 52, 57, 71, 0, 76, 79, 90, 92, 95, 98], bomb: true},
     75: {connected: [85, 86], bomb: false},
     76: {connected: [3, 7, 25, 31, 33, 39, 44, 49, 50, 52, 57, 71, 74, 0, 79, 90, 92, 95, 98], bomb: true},

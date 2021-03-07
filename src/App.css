@@ -19,6 +19,42 @@ span#red{
   text-decoration: line-through;
 }
 
+.App .content {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.App .content h1 {
+  position: absolute;
+  font-size: 1vw;
+  left: 8vw;
+}
+
+.App button {
+  position: absolute;
+  width: 10vw;
+  height: 5vh;
+  right: 8vw;
+  border: 0;
+  border-radius: 10px;
+  background: #ed8a94;
+  transition: all .4s;
+  color: white;
+  font-size: 1vw;
+}
+
+.App button:hover {
+  transform: scale(1.2, 1.2);
+  background: #d17982;
+}
+
+.App button:active {
+  transform: scale(1.2)
+}
+
 .board {
   width: 50rem;
   height: 40rem;

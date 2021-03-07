@@ -30,13 +30,18 @@ function App() {
   }, []);
 
   const showBombs = () => {
+    setBombs(20);
     Object.keys(fields).forEach(field => {
       if(fields[field].bomb){
         const myDiv = document.getElementById(`i${field}`);
         myDiv.style.background = "#FF0000 url('bomb.svg') no-repeat center";
       }
     });
-    setBombs(20);
+    const boardDiv = document.getElementsByClassName("board");
+    boardDiv[0].addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+    }, true)
   }
 
   const explodes = (field) => {
@@ -46,23 +51,29 @@ function App() {
         return true;
       }
       else{ 
-        var remainField = emptyFields-1;
+        var remainField = emptyFields+1;
         setEmptyFields(remainField);
         console.log(remainField);
         const myDiv = document.getElementById(`i${currentValue}`);
         myDiv.style.background = "#2ed133"
+        myDiv.addEventListener('click', (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+        }, true);
         return false;
       }
     });
   }
 
-  const handleClick = async (field) => {
-    explodes(field);
+  const handleResult = () => {
     if(bombs === 20){
-      
+      return 'As bombas explodiram';
     }
-    else if(emptyFields === 17){
-      console.log("ganhou");
+    else if(emptyFields === 16){
+      return 'Voce ganhou!!'
+    }
+    else{
+      return '...';
     }
   }
   return (
@@ -74,13 +85,22 @@ function App() {
         Como foi dito, existem diversos componentes fortemente conectados dentro do <span id="risk">grafo</span> campo minado.
         Como é de se esperar, as bombas também são componentes fortemente conectados. Boa sorte!
       </p>
-      <div></div>
-      <div className="board">
-        {Object.keys(fields).map((field) => (
-          <div className="field" id={`i${field}`} key={field} onClick={() => handleClick(field)}/>
-        ))}
+      <div className="content">
+        <div>
+          <h1>{handleResult()}</h1>
         </div>
+        <div className="board">
+          {Object.keys(fields).map((field) => (
+            <div className="field" id={`i${field}`} key={field} onClick={() => explodes(field)} />
+          ))}
+          </div>
+          <div>
+            <button onClick={() => {window.location.reload()}}>Reset</button>
+          </div>
+        </div>
+        
       </div>
+      
   );
 }
 
